@@ -1,43 +1,16 @@
-
-<html>
-
-<style>
-
-  a {
-    color: orange;
-  }
-
-</style>
-
-<script src="https://loccitane--osfccare.sandbox.my.site.com/clienteling/lightning/lightning.out.js"></script>
-
-<div data-lightning-out="true"></div>
-
-  <script>
-
-    const appName = 'c:OSF_ArticlesDependencyApp';
-    const componentName = 'c:osfArticleCategoriesGrid';
-    const lightningEndpoint = 'https://loccitane--osfccare.sandbox.my.site.com/clienteling';
-    const targetElement = document.querySelector("[data-lightning-out]");
-    const componentAttributes = { brand: 'test', country: 'test' };
-
-    $Lightning.use(
-            appName,
-            function (){
-              $Lightning.createComponent(
-                      componentName,
-                      componentAttributes,
-                      targetElement,
-                      function (cmp){
-                        console.log('lightning component created');
-                      }
-              );
-            },
-            lightningEndpoint
-    );
-
-
-  </script>
-
-
-</html>
+<div id='lexcontainer' ></div>
+    <script src="https://aliozdemir-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
+    <script>
+                console.log('here0');
+    $Lightning.use("c:webFormApp", function() { // Callback once framework and app load
+                $Lightning.createComponent("c:webForm", // top-level component of your app
+                    {brand : "Marvel"}, // attributes to set on the component when created
+                    "lexcontainer", // the DOM location to insert the component
+                    function(component) { // API name of the Flow
+                        //component.startFlow('Custom_Inbound_New_Guest_Appointment_V2');
+                    }
+                );
+                console.log('here2');
+            }, 'https://aliozdemir-dev-ed.my.site.com/s/' // Community endpoint
+        );
+    </script>
