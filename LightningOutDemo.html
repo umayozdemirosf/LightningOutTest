@@ -1,4 +1,3 @@
-
 <html>
 <style>
     #createCase {
@@ -6,21 +5,23 @@
         background-color: #ffcb00;
         height: 46px;
         border: none;
-        font-weight: 600;
+        font-weight: 700;
         cursor: pointer;
         display: block;
         padding: 1.5rem 0.8rem;
         min-width: 24rem;
-        text-align: center;
     }
 </style>
 <script src="https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
 
 <div data-lightning-out="true"></div>
-<div data-lightning-out-case="true" style="display: none;"></div>
-<button id="createCase"><span>Contact Us</span></button>
+<div data-lightning-out-case="true" style="display: none;">
+    <button id="createCase"><span>Contact Us</span></button>
 
-  <script>
+</div>
+
+
+<script>
 
     const appName = 'c:OSF_ArticlesDependencyApp';
     const articlesGridComponent = 'c:osfArticleCategoriesGrid';
@@ -30,23 +31,23 @@
     const articlesGridAttributes = { brand: 'loccitane', country: 'Jap' };
 
     $Lightning.use(
-            appName,
-            function (){
-              $Lightning.createComponent(
-                      articlesGridComponent,
-                      articlesGridAttributes,
-                      articlesDiv,
-                      function (cmp){
-                        console.log('articles grid created');
-                      }
-              );
-            },
-            lightningEndpoint
+        appName,
+        function () {
+            $Lightning.createComponent(
+                articlesGridComponent,
+                articlesGridAttributes,
+                articlesDiv,
+                function (cmp) {
+                    console.log('articles grid created');
+                }
+            );
+        },
+        lightningEndpoint
     );
 
 
     const createCaseDiv = document.querySelector("[data-lightning-out-case]");
-    const createCaseAttributes = { };
+    const createCaseAttributes = {};
     const btn = document.getElementById("createCase");
     btn.onclick = function () {
         if (createCaseDiv.style.display !== "none") {
@@ -57,23 +58,23 @@
     };
 
     $Lightning.use(
-            appName,
-            function (){
-              $Lightning.createComponent(
-                      createCaseComponent,
-                      createCaseAttributes,
-                      createCaseDiv,
-                      function (cmp){
-                        console.log('case flow created');
-                      }
-              );
-            },
-            lightningEndpoint
+        appName,
+        function () {
+            $Lightning.createComponent(
+                createCaseComponent,
+                createCaseAttributes,
+                createCaseDiv,
+                function (cmp) {
+                    console.log('case flow created');
+                }
+            );
+        },
+        lightningEndpoint
     );
 
 
 
-  </script>
+</script>
 
 
 </html>
