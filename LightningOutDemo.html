@@ -35,18 +35,26 @@
     .container {
         display: flex;
         align-items: center;
-        justify-content: center;
+        width: 100%;
     }
 
+    .articlesGrid {
+        width: 80%;
+        display: block;
+    }
+
+    .contactForm {
+        width: 100%;
+    }
 </style>
 <script src="https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
 
 <div class="container">
-    <div data-lightning-out="true"></div>
+    <div data-lightning-out="true" class="articlesGrid"></div>
     <div data-button="true">
         <button id="createCase"><span class="buttonLabel">Contact Us</span></button>
     </div>
-    <div data-lightning-out-case="true" style="display: none;">
+    <div data-lightning-out-case="true" style="display: none;" class="contactForm">
         <p id="returnToCategories" class="backLink">
             <span style="margin: 10px">Return to Categories</span>
         </p>
