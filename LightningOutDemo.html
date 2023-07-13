@@ -4,11 +4,13 @@
 <script src="https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
 
 <div data-lightning-out="true"></div>
-
+<div data-lightning-out-case="true"></div>
+  
   <script>
 
     const appName = 'c:OSF_ArticlesDependencyApp';
     const componentName = 'c:osfArticleCategoriesGrid';
+    const componentName2 = 'c:osfContactUs';
     const lightningEndpoint = 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare';
     const targetElement = document.querySelector("[data-lightning-out]");
     const componentAttributes = { brand: 'loccitane', country: 'Jap' };
@@ -27,6 +29,26 @@
             },
             lightningEndpoint
     );
+
+
+    const targetElement2 = document.querySelector("[data-lightning-out-case]");
+    const componentAttributes2 = { };
+
+    $Lightning.use(
+            appName,
+            function (){
+              $Lightning.createComponent(
+                      componentName2,
+                      componentAttributes2,
+                      targetElement2,
+                      function (cmp){
+                        console.log('case flow created');
+                      }
+              );
+            },
+            lightningEndpoint
+    );
+
 
 
   </script>
