@@ -8,20 +8,45 @@
         font-weight: 700;
         cursor: pointer;
         display: block;
-        padding: 1.5rem 0.8rem;
         text-align: center;
-        min-width: 24rem;
-        font-size: 1.4rem;
     }
+
+    .backLink {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #495460;
+        margin: 10px;
+    }
+    
+    .backLink:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .buttonLabel {
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #001022;
+        padding: 1.5rem 0.8rem;
+        border: 0!important;
+        margin: 0;
+        background: 0 0;
+        display: block;
+    }
+
 </style>
 <script src="https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
 
 <div data-lightning-out="true"></div>
-<div>
-    <button id="createCase"><span>Contact Us</span></button>
+<div data-button="true">
+    <button id="createCase"><span class="buttonLabel">Contact Us</span></button>
 
 </div>
 <div data-lightning-out-case="true" style="display: none;">
+    <p id="returnToCategories" class="backLink">
+        <span>Return to Categories</span>
+      </p>
 </div>
 
 
@@ -51,14 +76,23 @@
 
 
     const createCaseDiv = document.querySelector("[data-lightning-out-case]");
+    const buttonDiv = document.querySelector("[data-button]");
     const createCaseAttributes = {};
-    const btn = document.getElementById("createCase");
-    btn.onclick = function () {
-        if (createCaseDiv.style.display !== "none") {
-            createCaseDiv.style.display = "none";
-        } else {
+    const createbtn = document.getElementById("createCase");
+
+
+    createbtn.onclick = function () {
             createCaseDiv.style.display = "block";
-        }
+            buttonDiv.style.display = "none";
+            articlesDiv.style.display = "none";
+    };
+
+    const returnBtn = document.getElementById("returnToCategories");
+    returnBtn.onclick = function () {
+            createCaseDiv.style.display = "none";
+            buttonDiv.style.display = "block";
+            articlesDiv.style.display = "block";
+
     };
 
     $Lightning.use(
