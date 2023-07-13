@@ -23,7 +23,7 @@
     }
 
     .buttonLabel {
-        font-size: 1rem;
+        font-size: 15px;       
         font-weight: 700;
         text-transform: uppercase;
         color: #001022;
@@ -49,19 +49,23 @@
     }
 
     .buttonContainer {
-        position: absolute;
-        top: 30%;
-        left: 0;
-        right: 0;
-        margin: auto;
+        position: relative;;
+        display: flex;
     }
+
+    .buttonClass {
+        position: fixed;
+        top: 20%;
+        right: 13%;
+    }
+
 </style>
 <script src="https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
 
 <div class="container">
     <div data-lightning-out="true" class="articlesGrid"></div>
     <div class="buttonContainer">
-        <div data-button="true">
+        <div data-button="true" class="buttonClass">
             <button id="createCase"><span class="buttonLabel">Contact Us</span></button>
         </div>
     </div>
