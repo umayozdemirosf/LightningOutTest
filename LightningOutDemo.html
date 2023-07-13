@@ -14,10 +14,8 @@
     .backLink {
         font-size: 0.8rem;
         font-weight: 500;
-        color: #495460;
-        margin: 10px;
     }
-    
+
     .backLink:hover {
         cursor: pointer;
         text-decoration: underline;
@@ -28,26 +26,32 @@
         font-weight: 700;
         text-transform: uppercase;
         color: #001022;
-        border: 0!important;
+        border: 0 !important;
         margin: 0;
         background: 0 0;
         display: block;
     }
 
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 </style>
 <script src="https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
 
-<div data-lightning-out="true"></div>
-<div data-button="true">
-    <button id="createCase"><span class="buttonLabel">Contact Us</span></button>
-
+<div class="container">
+    <div data-lightning-out="true"></div>
+    <div data-button="true">
+        <button id="createCase"><span class="buttonLabel">Contact Us</span></button>
+    </div>
+    <div data-lightning-out-case="true" style="display: none;">
+        <p id="returnToCategories" class="backLink">
+            <span style="margin: 10px">Return to Categories</span>
+        </p>
+    </div>
 </div>
-<div data-lightning-out-case="true" style="display: none;">
-    <p id="returnToCategories" class="backLink">
-        <span>Return to Categories</span>
-      </p>
-</div>
-
 
 <script>
 
@@ -77,20 +81,19 @@
     const createCaseDiv = document.querySelector("[data-lightning-out-case]");
     const buttonDiv = document.querySelector("[data-button]");
     const createCaseAttributes = {};
+
     const createbtn = document.getElementById("createCase");
-
-
     createbtn.onclick = function () {
-            createCaseDiv.style.display = "block";
-            buttonDiv.style.display = "none";
-            articlesDiv.style.display = "none";
+        createCaseDiv.style.display = "block";
+        buttonDiv.style.display = "none";
+        articlesDiv.style.display = "none";
     };
 
     const returnBtn = document.getElementById("returnToCategories");
     returnBtn.onclick = function () {
-            createCaseDiv.style.display = "none";
-            buttonDiv.style.display = "block";
-            articlesDiv.style.display = "block";
+        createCaseDiv.style.display = "none";
+        buttonDiv.style.display = "block";
+        articlesDiv.style.display = "block";
 
     };
 
@@ -109,4 +112,5 @@
         lightningEndpoint
     );
 </script>
+
 </html>
