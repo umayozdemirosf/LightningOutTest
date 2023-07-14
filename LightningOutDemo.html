@@ -63,7 +63,7 @@
 
 <div class="container">
     <div data-lightning-out="true" class="articlesGrid"></div>
-    <div class="buttonContainer">
+    <!-- <div class="buttonContainer">
         <div data-button="true" class="buttonClass">
             <button id="createCase"><h3 class="buttonLabel">Contact Us</h3></button>
         </div>
@@ -73,14 +73,14 @@
         <p id="returnToCategories" class="backLink">
             <span>&lt;Return to Categories</span>
         </p>
-    </div>
+    </div> -->
 </div>
 
 <script>
 
     const appName = 'c:OSF_ArticlesDependencyApp';
     const articlesGridComponent = 'c:osfArticleCategoriesGrid';
-    const createCaseComponent = 'c:osfContactUs';
+    // const createCaseComponent = 'c:osfContactUs';
     const lightningEndpoint = 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare';
     const articlesDiv = document.querySelector("[data-lightning-out]");
     const articlesGridAttributes = { brand: 'loccitane', country: 'Jap' };
@@ -100,11 +100,11 @@
     );
 
 
-    const createCaseDiv = document.querySelector("[data-lightning-out-case]");
-    const buttonDiv = document.querySelector("[data-button]");
-    const createCaseAttributes = {};
+    //const createCaseDiv = document.querySelector("[data-lightning-out-case]");
+    //const buttonDiv = document.querySelector("[data-button]");
+    //const createCaseAttributes = {};
 
-    const createbtn = document.getElementById("createCase");
+   /* const createbtn = document.getElementById("createCase");
     createbtn.onclick = function () {
         createCaseDiv.style.display = "block";
         buttonDiv.style.display = "none";
@@ -128,7 +128,7 @@
             );
         },
         lightningEndpoint
-    );
+    ); */
 </script>
 
 </html>
