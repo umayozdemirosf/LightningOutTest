@@ -14,7 +14,7 @@
     #returnToCategories {
         font-size: 0.8rem;
         font-weight: 500;
-        margin: 20px 10px;        
+        margin: 20px 10px;
         color: #495460;
     }
 
@@ -24,7 +24,7 @@
     }
 
     .buttonLabel {
-        font-size: 15px;       
+        font-size: 15px;
         font-weight: 700;
         text-transform: uppercase;
         color: #001022;
@@ -48,7 +48,8 @@
     }
 
     .buttonContainer {
-        position: relative;;
+        position: relative;
+        ;
         display: flex;
     }
 
@@ -57,7 +58,6 @@
         top: 20%;
         right: 13%;
     }
-
 </style>
 <script src="https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
 
@@ -65,7 +65,9 @@
     <div data-lightning-out="true" class="articlesGrid"></div>
     <div class="buttonContainer">
         <div data-button="true" class="buttonClass">
-            <button id="createCase"><h3 class="buttonLabel">Contact Us</h3></button>
+            <button id="createCase">
+                <h3 class="buttonLabel">Contact Us</h3>
+            </button>
         </div>
     </div>
     <div data-lightning-out-case="true" style="display: none;" class="contactForm">
@@ -89,15 +91,20 @@
         appName,
         function () {
             $Lightning.createComponent(
-                articlesGridComponent, { 
-                "siteURL": lightningEndpoint 
-            },
+                articlesGridComponent,
                 articlesGridAttributes,
                 articlesDiv,
                 function (cmp) {
                     console.log('articles grid created');
-                                        console.log('lightningEndpoint::' + lightningEndpoint);
-
+                    console.log('lightningEndpoint::' + lightningEndpoint);
+                    window.addEventListener("message", function (event) {
+                        if (event.data && event.data.variableValue) {
+                            // Access the variable value sent from LWC
+                            const variableValue = event.data.variableValue;
+                            // Do something with the variable value
+                            console.log(variableValue);
+                        }
+                    });
                 }
             );
         },
