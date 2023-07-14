@@ -49,7 +49,6 @@
 
     .buttonContainer {
         position: relative;
-        ;
         display: flex;
     }
 
@@ -58,6 +57,7 @@
         top: 20%;
         right: 13%;
     }
+
 </style>
 <script src="https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
 
@@ -65,9 +65,7 @@
     <div data-lightning-out="true" class="articlesGrid"></div>
     <div class="buttonContainer">
         <div data-button="true" class="buttonClass">
-            <button id="createCase">
-                <h3 class="buttonLabel">Contact Us</h3>
-            </button>
+            <button id="createCase"><h3 class="buttonLabel">Contact Us</h3></button>
         </div>
     </div>
     <div data-lightning-out-case="true" style="display: none;" class="contactForm">
@@ -83,7 +81,7 @@
     const appName = 'c:OSF_ArticlesDependencyApp';
     const articlesGridComponent = 'c:osfArticleCategoriesGrid';
     const createCaseComponent = 'c:osfContactUs';
-    let lightningEndpoint = '';
+    const lightningEndpoint = 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare';
     const articlesDiv = document.querySelector("[data-lightning-out]");
     const articlesGridAttributes = { brand: 'loccitane', country: 'Jap' };
 
@@ -95,18 +93,6 @@
                 articlesGridAttributes,
                 articlesDiv,
                 function (cmp) {
-                    console.log('articles grid created');
-                    console.log('lightningEndpoint::' + lightningEndpoint);
-                    window.addEventListener("message", function (event) {
-                        if (event.data && event.data.variableValue) {
-                            // Access the variable value sent from LWC
-                            const variableValue = event.data.variableValue;
-                            // Do something with the variable value
-                            console.log('variableValue:::' + variableValue);
-                        }
-                    });
-                    console.log('variableValue:::' + variableValue);
-
                 }
             );
         },
@@ -138,7 +124,6 @@
                 createCaseAttributes,
                 createCaseDiv,
                 function (cmp) {
-                    console.log('case flow created');
                 }
             );
         },
