@@ -81,7 +81,7 @@
     const appName = 'c:OSF_ArticlesDependencyApp';
     const articlesGridComponent = 'c:osfArticleCategoriesGrid';
     const createCaseComponent = 'c:osfContactUs';
-    let lightningEndpoint = 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare';
+    let lightningEndpoint = '';
     const articlesDiv = document.querySelector("[data-lightning-out]");
     const articlesGridAttributes = { brand: 'loccitane', country: 'Jap' };
 
@@ -96,6 +96,8 @@
                 articlesDiv,
                 function (cmp) {
                     console.log('articles grid created');
+                                        console.log(lightningEndpoint);
+
                 }
             );
         },
