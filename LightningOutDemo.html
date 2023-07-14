@@ -81,7 +81,7 @@
     const appName = 'c:OSF_ArticlesDependencyApp';
     const articlesGridComponent = 'c:osfArticleCategoriesGrid';
     const createCaseComponent = 'c:osfContactUs';
-    const lightningEndpoint = 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare';
+    let lightningEndpoint = 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare';
     const articlesDiv = document.querySelector("[data-lightning-out]");
     const articlesGridAttributes = { brand: 'loccitane', country: 'Jap' };
 
@@ -89,7 +89,9 @@
         appName,
         function () {
             $Lightning.createComponent(
-                articlesGridComponent,
+                articlesGridComponent, { 
+                "siteURL": lightningEndpoint 
+            },
                 articlesGridAttributes,
                 articlesDiv,
                 function (cmp) {
