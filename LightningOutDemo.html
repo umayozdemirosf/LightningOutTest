@@ -42,7 +42,7 @@
         text-decoration: underline;
     }
 
-    .buttonLabel {
+    #buttonLabel {
         text-transform: uppercase;
         border: 0 !important;
         margin: 0;
@@ -106,7 +106,7 @@
     <div class="buttonContainer">
         <div data-button="true" class="buttonClass">
             <button id="createCase">
-                <h3 class="buttonLabel">Contact Us</h3>
+                <h3 id="buttonLabel">Contact Us</h3>
             </button>
         </div>
     </div>
@@ -142,7 +142,7 @@
                 root.style.setProperty('--fontFamily', 'LOccitane Sans Medium');
 
                 // Set the styles for .buttonLabel
-                const buttonLabel = document.querySelector('.buttonLabel');
+                const buttonLabel = document.getElementById("buttonLabel");
                 buttonLabel.style.fontSize = '14px !important';
                 buttonLabel.style.lineHeight = '20px !important';
                 buttonLabel.style.fontWeight = '500 !important';
@@ -153,7 +153,7 @@
                 root.style.setProperty('--fontFamily', 'HK Grotesk Medium');
 
                 // Set the styles for .buttonLabel
-                const buttonLabel = document.querySelector('.buttonLabel');
+                const buttonLabel = document.getElementById("buttonLabel");
                 buttonLabel.style.fontSize = '16px !important';
                 buttonLabel.style.lineHeight = '22px !important';
                 buttonLabel.style.fontWeight = '600 !important';
@@ -164,7 +164,7 @@
                 root.style.setProperty('--fontFamily', 'Futura Std Medium');
 
                 // Set the styles for .buttonLabel
-                const buttonLabel = document.querySelector('.buttonLabel');
+                const buttonLabel = document.getElementById("buttonLabel");
                 buttonLabel.style.fontSize = '16px !important';
                 buttonLabel.style.lineHeight = '22px !important';
                 buttonLabel.style.fontWeight = '600 !important';
