@@ -128,34 +128,51 @@
     const createCaseComponent = 'c:osfContactUs';
     const lightningEndpoint = 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare';
     const articlesDiv = document.querySelector("[data-lightning-out]");
-    const articlesGridAttributes = { brand: 'melvita', country: 'UK' };
+    const articlesGridAttributes = { brand: 'loccitane', country: 'UK' };
 
 
 
     document.addEventListener('DOMContentLoaded', function () {
         // Get the root element of the document
         const root = document.documentElement;
-        console.log('inside DOMContentLoaded');
-        // Define the method that sets the CSS variables and font family
+
+        // Define the method that sets the CSS variables and styles for .buttonLabel
         function setBrandCSSVariable(brand) {
             // Set the value of the CSS variables
             if (brand === 'loccitane') {
                 root.style.setProperty('--fullUrl', 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/resource/LOccitane_Fonts/LOccitaneSans-Medium.woff');
                 root.style.setProperty('--fontFormat', 'woff');
                 root.style.setProperty('--fontFamily', 'LOccitane Sans Medium');
+
+                // Set the styles for .buttonLabel
+                const buttonLabel = document.querySelector('.buttonLabel');
+                buttonLabel.style.fontSize = '14px';
+                buttonLabel.style.lineHeight = '20px';
+                buttonLabel.style.fontWeight = '500';
+                buttonLabel.style.color = '#001022';
             } else if (brand === 'erborian') {
                 root.style.setProperty('--fullUrl', 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/resource/HKGrotesk_Fonts/HKGrotesk-Medium.otf');
                 root.style.setProperty('--fontFormat', 'opentype');
                 root.style.setProperty('--fontFamily', 'HK Grotesk Medium');
+
+                // Set the styles for .buttonLabel
+                const buttonLabel = document.querySelector('.buttonLabel');
+                buttonLabel.style.fontSize = '16px';
+                buttonLabel.style.lineHeight = '22px';
+                buttonLabel.style.fontWeight = '600';
+                buttonLabel.style.color = '#001022';
             } else if (brand === 'melvita') {
                 root.style.setProperty('--fullUrl', 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/resource/Futura_Fonts/FuturaStdMedium.otf');
                 root.style.setProperty('--fontFormat', 'opentype');
                 root.style.setProperty('--fontFamily', 'Futura Std Medium');
-            }
 
-            // Set the font family for the .buttonLabel class
-            const buttonLabel = document.querySelector('.buttonLabel');
-            buttonLabel.style.fontFamily = getComputedStyle(root).getPropertyValue('--fontFamily');
+                // Set the styles for .buttonLabel
+                const buttonLabel = document.querySelector('.buttonLabel');
+                buttonLabel.style.fontSize = '16px';
+                buttonLabel.style.lineHeight = '22px';
+                buttonLabel.style.fontWeight = '600';
+                buttonLabel.style.color = '#3F2A2E';
+            }
         }
 
         // Get the brand value from the articlesGridAttributes object
