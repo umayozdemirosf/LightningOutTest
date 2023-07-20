@@ -82,10 +82,7 @@
 </style>
 <script src="https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
 
-document.addEventListener("DOMContentLoaded", (event) => {
-  console.log("DOM fully loaded and parsed");
-});
-    
+
     
 <div class="container">
     <!-- FAQ LWC Component will be created in this div by the script. This div can be placed anywhere on the page based on requirements -->
@@ -111,6 +108,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const lightningEndpoint = 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare';
     const articlesDiv = document.querySelector("[data-lightning-out]");
     const articlesGridAttributes = { brand: 'loccitane', country: 'UK' };
+
+
+    document.addEventListener("DOMContentLoaded", (event) => {
+  console.log("DOM fully loaded and parsed");
+});
+    
 
     $Lightning.use(
         appName,
