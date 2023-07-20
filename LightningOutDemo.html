@@ -115,19 +115,19 @@
 
          let bodyStyles = document.body.style;
 
-        if (this.articlesGridAttributes.brand == BRAND_LOCCITANE) {
+        if (this.articlesGridAttributes.brand == 'loccitane') {
               console.log("DOM ,brand" + this.articlesGridAttributes.brand);
 
             bodyStyles.setProperty('--fullUrl', this.lightningEndpoint + '/resource/LOccitane_Fonts/LOccitaneSans-Medium.woff');
             bodyStyles.setProperty('--fontFormat', 'woff');
             bodyStyles.setProperty('--fontFamily', 'LOccitane Sans Medium');
 
-          } else if (articlesGridAttributes.brand == BRAND_ERBORIAN) {
+          } else if (articlesGridAttributes.brand == 'erborian') {
             bodyStyles.setProperty('--fullUrl', this.lightningEndpoint + '/resource/HKGrotesk_Fonts/HKGrotesk-Medium.otf');
             bodyStyles.setProperty('--fontFormat', 'opentype');
             bodyStyles.setProperty('--fontFamily', 'HK Grotesk Medium');
 
-          } else if (articlesGridAttributes.brand == BRAND_MELVITA) {
+          } else if (articlesGridAttributes.brand == 'melvita') {
             bodyStyles.setProperty('--fullUrl', this.lightningEndpoint + '/resource/Futura_Fonts/FuturaStdMedium.otf');
             bodyStyles.setProperty('--fontFormat', 'opentype');
             bodyStyles.setProperty('--fontFamily', 'Futura Std Medium');
