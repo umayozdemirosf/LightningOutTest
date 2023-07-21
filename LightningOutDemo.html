@@ -1,4 +1,21 @@
 <html>
+<!-- 
+Project      : Kokoro
+Created By   : Salesforce Core
+Created Date : 20/07/2023
+Description  : Lightning out script for the Help Center and Web-to-Case pages
+Notes        : a) The brand and country info to be sent dynamically to the LWC
+               b) The endpoints for script and used static resource should be updated
+                  based on the environment 
+History      :
+**************************ACRONYM OF AUTHORS************************************
+AUTHOR                      ACRONYM
+Umay Ozdemir                   UA
+Kenan Cetin                    KC
+********************************************************************************
+VERSION  AUTHOR         DATE            Description
+1.0       UA	     20/07/2023		   initial version
+ -->
 <!-- This meta tag added to support mobile devices. It can be omitted if the page already has the tag -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
@@ -124,8 +141,6 @@
 </style>
 <script src="https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
 
-
-
 <div class="container">
     <!-- FAQ LWC Component will be created in this div by the script. This div can be placed anywhere on the page based on requirements -->
     <div data-lightning-out="true" class="articlesGrid"></div>
@@ -151,22 +166,17 @@
     const createCaseComponent = 'c:osfContactUs';
     const lightningEndpoint = 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare';
     const articlesDiv = document.querySelector("[data-lightning-out]");
+    // The attributes that will be passed to the LWC component
     const articlesGridAttributes = { brand: 'loccitane', country: 'UK' };
 
-
-
     document.addEventListener('DOMContentLoaded', function () {
-        // Get the root element of the document
         const root = document.documentElement;
 
-        // Define the method that sets the CSS variables and styles for .buttonLabel
         function setBrandCSSVariable(brand) {
-            // Set the value of the CSS variables
             if (brand === 'loccitane') {
                 root.style.setProperty('--fullUrl', 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/resource/LOccitane_Fonts/LOccitaneSans-Medium.woff');
                 root.style.setProperty('--fontFormat', 'woff');
                 root.style.setProperty('--fontFamily', 'LOccitane Sans Medium');
-                // Add the class for Loccitane brand
                 const button = document.getElementById('buttonLabel');
                 button.classList.add('buttonLoccitane');
 
@@ -175,7 +185,6 @@
                 root.style.setProperty('--fontFormat', 'opentype');
                 root.style.setProperty('--fontFamily', 'HK Grotesk Medium');
 
-                // Add the class for Erborian brand
                 const button = document.getElementById('buttonLabel');
                 button.classList.add('buttonErborian');
             } else if (brand === 'melvita') {
@@ -183,21 +192,15 @@
                 root.style.setProperty('--fontFormat', 'opentype');
                 root.style.setProperty('--fontFamily', 'Futura Std Medium');
 
-                // Add the class for Melvita brand
                 const button = document.getElementById('buttonLabel');
                 button.classList.add('buttonMelvita');
             }
         }
 
-        // Get the brand value from the articlesGridAttributes object
         const brand = articlesGridAttributes.brand;
 
-        // Call the method with the brand value
         setBrandCSSVariable(brand);
     });
-
-
-
 
     $Lightning.use(
         appName,
@@ -213,11 +216,9 @@
         lightningEndpoint
     );
 
-
     const createCaseDiv = document.querySelector("[data-lightning-out-case]");
     const buttonDiv = document.querySelector("[data-button]");
     const createCaseAttributes = {};
-
     const createbtn = document.getElementById("createCase");
 
     createbtn.onclick = function () {
