@@ -51,6 +51,28 @@
         font-family: var(--fontFamily) !important;
     }
 
+    .buttonLoccitane {
+
+        font-size: '14px !important';
+        line-height: '20px !important';
+        font-weight: '500 !important';
+        color: '#001022 !important';
+    }
+
+    .buttonMelvita {
+        font-size: '16px !important';
+        line-height: '22px !important';
+        font-weight: '600 !important';
+        color: '#3F2A2E !important';
+    }
+
+    .buttonErborian {
+        font-size: '16px !important';
+        line-height: '22px !important';
+        font-weight: '600 !important';
+        color: '#001022 !important';
+    }
+
     .container {
         width: 100%;
     }
@@ -140,29 +162,26 @@
                 root.style.setProperty('--fullUrl', 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/resource/LOccitane_Fonts/LOccitaneSans-Medium.woff');
                 root.style.setProperty('--fontFormat', 'woff');
                 root.style.setProperty('--fontFamily', 'LOccitane Sans Medium');
+                // Add the class for Loccitane brand
+                const button = document.getElementById('buttonLabel');
+                button.classList.add('buttonLoccitane');
 
-                document.getElementById("buttonLabel").style.fontSize = '14px !important';
-                document.getElementById("buttonLabel").style.lineHeight = '20px !important';
-                document.getElementById("buttonLabel").style.fontWeight = '500 !important';
-                document.getElementById("buttonLabel").style.color = '#001022 !important';
             } else if (brand === 'erborian') {
                 root.style.setProperty('--fullUrl', 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/resource/HKGrotesk_Fonts/HKGrotesk-Medium.otf');
                 root.style.setProperty('--fontFormat', 'opentype');
                 root.style.setProperty('--fontFamily', 'HK Grotesk Medium');
 
-                document.getElementById("buttonLabel").style.fontSize = '16px !important';
-                document.getElementById("buttonLabel").style.lineHeight = '22px !important';
-                document.getElementById("buttonLabel").style.fontWeight = '600 !important';
-                document.getElementById("buttonLabel").style.color = '#001022 !important';
+                // Add the class for Erborian brand
+                const button = document.getElementById('buttonLabel');
+                button.classList.add('buttonErborian');
             } else if (brand === 'melvita') {
                 root.style.setProperty('--fullUrl', 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/resource/Futura_Fonts/FuturaStdMedium.otf');
                 root.style.setProperty('--fontFormat', 'opentype');
                 root.style.setProperty('--fontFamily', 'Futura Std Medium');
 
-                document.getElementById("buttonLabel").style.fontSize = '16px !important';
-                document.getElementById("buttonLabel").style.lineHeight = '22px !important';
-                document.getElementById("buttonLabel").style.fontWeight = '600 !important';
-                document.getElementById("buttonLabel").style.color = '#3F2A2E !important';
+                // Add the class for Melvita brand
+                const button = document.getElementById('buttonLabel');
+                button.classList.add('buttonMelvita');
             }
         }
 
