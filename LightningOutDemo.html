@@ -241,7 +241,16 @@ VERSION  AUTHOR         DATE            Description
         createCaseDiv.style.display = "block";
         buttonDiv.style.display = "none";
         articlesDiv.style.display = "none";
-        containerClass[0].style.display = "none";
+      const styleSheet = document.styleSheets[0];
+      const rules = styleSheet.cssRules || styleSheet.rules;
+      
+      for (let i = 0; i < rules.length; i++) {
+        const rule = rules[i];
+        if (rule.selectorText === ".container") {
+          rule.style.display = "block";
+          break;
+        }
+      }
     };
 
     const returnBtn = document.getElementById("returnToCategories");
