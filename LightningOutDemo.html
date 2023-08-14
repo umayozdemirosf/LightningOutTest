@@ -236,11 +236,14 @@ VERSION  AUTHOR         DATE            Description
     const buttonDiv = document.querySelector("[data-button]");
     const createbtn = document.getElementById("createCase");
     const containerDiv = document.querySelector(".container");
+      const containerClass = document.getElementsByClassName("container");
+
 
     createbtn.onclick = function () {
         createCaseDiv.style.display = "block";
         buttonDiv.style.display = "none";
         articlesDiv.style.display = "none";
+        containerClass[0].style.flexDirection = "column";
 
     };
 
