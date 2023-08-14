@@ -92,8 +92,10 @@ VERSION  AUTHOR         DATE            Description
 
     .container {
         width: 100%;
+        display: inline-flex;
+        flex-direction: row;        
     }
-
+  
     .articlesGrid {
         width: 70%;
         display: block;
@@ -104,14 +106,15 @@ VERSION  AUTHOR         DATE            Description
     }
 
     .buttonContainer {
+        width: 30%;
         position: relative;
         display: flex;
     }
 
     .buttonClass {
-        position: fixed;
-        top: 20%;
-        right: 13%;
+        position: relative;
+        top: 30%;
+        right: -15%;
     }
 
     @media only screen and (max-width: 600px) {
@@ -137,6 +140,7 @@ VERSION  AUTHOR         DATE            Description
         .articlesGrid {
             width: 100%;
         }
+
         .container {
             flex-direction: column;
         }
@@ -158,14 +162,13 @@ VERSION  AUTHOR         DATE            Description
             </button>
         </div>
     </div>
-    <div data-lightning-out-case="true" style="display:none;" class="contactForm">
+</div>
+<div data-lightning-out-case="true" style="display:none;" class="contactForm">
         <h1 style="margin:10px;">Contact Us</h1>
         <p id="returnToCategories" class="backLink">
             <span>&lt;Return to Categories</span>
         </p>
-    </div>
 </div>
-
 <script>
 
     const appName = 'c:OSF_ArticlesDependencyApp';
@@ -222,16 +225,25 @@ VERSION  AUTHOR         DATE            Description
         },
         lightningEndpoint
     );
-    
+
     const createCaseDiv = document.querySelector("[data-lightning-out-case]");
     const buttonDiv = document.querySelector("[data-button]");
-    const createCaseAttributes = { brand: 'loccitane', country: 'UK' };
     const createbtn = document.getElementById("createCase");
-
+  
     createbtn.onclick = function () {
         createCaseDiv.style.display = "block";
         buttonDiv.style.display = "none";
         articlesDiv.style.display = "none";
+      const styleSheet = document.styleSheets[0];
+      const rules = styleSheet.cssRules || styleSheet.rules;
+      
+      for (let i = 0; i < rules.length; i++) {
+        const rule = rules[i];
+        if (rule.selectorText === ".container") {
+          rule.style.display = "block";
+          break;
+        }
+      }
     };
 
     const returnBtn = document.getElementById("returnToCategories");
@@ -244,7 +256,7 @@ VERSION  AUTHOR         DATE            Description
         function () {
             $Lightning.createComponent(
                 createCaseComponent,
-                createCaseAttributes,
+                articlesGridAttributes,
                 createCaseDiv,
                 function (cmp) {
                 }
@@ -252,7 +264,6 @@ VERSION  AUTHOR         DATE            Description
         },
         lightningEndpoint
     ); 
-
 </script>
 
 </html>
