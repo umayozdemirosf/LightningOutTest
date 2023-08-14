@@ -234,22 +234,7 @@ VERSION  AUTHOR         DATE            Description
         buttonDiv.style.display = "none";
         articlesDiv.style.display = "none";
 
-        var styleSheet = document.getElementById("myStyles");
-        if (styleSheet) {
-          const rules = styleSheet.cssRules || styleSheet.rules;
-          
-          for (let i = 0; i < rules.length; i++) {
-            const rule = rules[i];
-            if (rule.selectorText === ".container") {
-              styleSheet.insertRule(".container { display: block; }", i);
-              styleSheet.deleteRule(i + 1);
-              break;
-            }
-          }
-        }
-}
-      
-      /*const styleSheet = document.styleSheets[0];
+      const styleSheet = document.styleSheets[0];
       const rules = styleSheet.cssRules || styleSheet.rules;
       
       for (let i = 0; i < rules.length; i++) {
@@ -259,7 +244,7 @@ VERSION  AUTHOR         DATE            Description
           break;
         }
       } 
-    };*/
+    };
 
     const returnBtn = document.getElementById("returnToCategories");
     returnBtn.onclick = function () {
