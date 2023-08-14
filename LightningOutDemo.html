@@ -95,12 +95,7 @@ VERSION  AUTHOR         DATE            Description
         display: inline-flex;
         flex-direction: row;        
     }
-
-    .containerForm {
-        width: 100%;
-        display: block;
-    }
-
+  
     .articlesGrid {
         width: 70%;
         display: block;
@@ -233,10 +228,7 @@ VERSION  AUTHOR         DATE            Description
     const createCaseDiv = document.querySelector("[data-lightning-out-case]");
     const buttonDiv = document.querySelector("[data-button]");
     const createbtn = document.getElementById("createCase");
-    const containerDiv = document.querySelector(".container");
-      const containerClass = document.getElementsByClassName("container");
-
-
+  
     createbtn.onclick = function () {
         createCaseDiv.style.display = "block";
         buttonDiv.style.display = "none";
