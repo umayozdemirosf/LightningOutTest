@@ -92,8 +92,6 @@ VERSION  AUTHOR         DATE            Description
 
     .container {
         width: 100%;
-        display: flex;
-        flex-direction: row;
     }
 
     .articlesGrid {
@@ -142,13 +140,21 @@ VERSION  AUTHOR         DATE            Description
         }
 
         .container {
-            flex-direction: column;
+            display: block;
         }
 
         .buttonContainer {
             width: 100%;
         }
     }
+
+   @media only screen and (min-width: 1300px) {
+     .container {
+        display: flex;
+        flex-direction: row;        
+     }
+
+   }
 </style>
 <script src="https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
 
