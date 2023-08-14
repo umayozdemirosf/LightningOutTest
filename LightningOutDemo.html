@@ -96,6 +96,10 @@ VERSION  AUTHOR         DATE            Description
         flex-direction: row;        
     }
 
+    .containerForm {
+        display: block;
+    }
+
     .articlesGrid {
         width: 70%;
         display: block;
@@ -230,14 +234,14 @@ VERSION  AUTHOR         DATE            Description
     const createCaseDiv = document.querySelector("[data-lightning-out-case]");
     const buttonDiv = document.querySelector("[data-button]");
     const createbtn = document.getElementById("createCase");
-    const containerClass = document.getElementsByClassName("container");
+    const containerDiv = document.querySelector(".container");
 
     createbtn.onclick = function () {
         createCaseDiv.style.display = "block";
         buttonDiv.style.display = "none";
         articlesDiv.style.display = "none";
-        containerClass[0].style.flexDirection = "column";
-        containerClass[0].style.display = "block";
+        containerDiv.classList.add("containerForm");
+        containerDiv.classList.remove("container");
     };
 
     const returnBtn = document.getElementById("returnToCategories");
