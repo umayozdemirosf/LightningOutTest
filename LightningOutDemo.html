@@ -97,8 +97,9 @@ VERSION  AUTHOR         DATE            Description
     }
 
     .containerForm {
-        display: block;
         width: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     .articlesGrid {
@@ -241,6 +242,8 @@ VERSION  AUTHOR         DATE            Description
         createCaseDiv.style.display = "block";
         buttonDiv.style.display = "none";
         articlesDiv.style.display = "none";
+        containerDiv.classList.add("containerForm");
+        containerDiv.classList.remove("container");
     };
 
     const returnBtn = document.getElementById("returnToCategories");
