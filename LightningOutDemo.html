@@ -235,18 +235,18 @@ VERSION  AUTHOR         DATE            Description
         articlesDiv.style.display = "none";
 
         var styleSheet = document.getElementById("myStyles");
-if (styleSheet) {
-  console.log('inside sheet')
-      const rules = styleSheet.cssRules || styleSheet.rules;
-      
-      for (let i = 0; i < rules.length; i++) {
-        const rule = rules[i];
-        if (rule.selectorText === ".container") {
-          rule.style.display = "block";
-          break;
+        if (styleSheet) {
+          const rules = styleSheet.cssRules || styleSheet.rules;
+          
+          for (let i = 0; i < rules.length; i++) {
+            const rule = rules[i];
+            if (rule.selectorText === ".container") {
+              styleSheet.insertRule(".container { display: block; }", i);
+              styleSheet.deleteRule(i + 1);
+              break;
+            }
+          }
         }
-      }
-    };
 }
       
       /*const styleSheet = document.styleSheets[0];
