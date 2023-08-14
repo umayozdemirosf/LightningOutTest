@@ -18,7 +18,7 @@ VERSION  AUTHOR         DATE            Description
  -->
 <!-- This meta tag added to support mobile devices. It can be omitted if the page already has the tag -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style>
+<style id="myStyles">
     :host {
         --url: url(var(--fullUrl));
     }
@@ -233,7 +233,11 @@ VERSION  AUTHOR         DATE            Description
         createCaseDiv.style.display = "block";
         buttonDiv.style.display = "none";
         articlesDiv.style.display = "none";
-      const styleSheet = document.styleSheets[0];
+
+        var stylesheet = document.getElementById(stylesheetId);
+if (stylesheet) {
+    stylesheet = stylesheet.sheet;
+  console.log('inside sheet')
       const rules = styleSheet.cssRules || styleSheet.rules;
       
       for (let i = 0; i < rules.length; i++) {
@@ -243,6 +247,19 @@ VERSION  AUTHOR         DATE            Description
           break;
         }
       }
+    };
+}
+      
+      /*const styleSheet = document.styleSheets[0];
+      const rules = styleSheet.cssRules || styleSheet.rules;
+      
+      for (let i = 0; i < rules.length; i++) {
+        const rule = rules[i];
+        if (rule.selectorText === ".container") {
+          rule.style.display = "block";
+          break;
+        }
+      } */
     };
 
     const returnBtn = document.getElementById("returnToCategories");
