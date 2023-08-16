@@ -249,6 +249,7 @@ VERSION  AUTHOR         DATE            Description
     const returnBtn = document.getElementById("returnToCategories");
     returnBtn.onclick = function () {
         window.location.reload();
+        localStorage.clear(); 
     };
 
     $Lightning.use(
