@@ -255,6 +255,12 @@ VERSION  AUTHOR         DATE            Description
         console.log('in out after removal cat' + JSON.stringify(cat));
     };
 
+  window.addEventListener('load', function() {
+        window.localStorage.removeItem('fileArray');
+            console.log('onload');
+
+});
+
     $Lightning.use(
         appName,
         function () {
