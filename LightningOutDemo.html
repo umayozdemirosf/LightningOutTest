@@ -248,7 +248,7 @@ VERSION  AUTHOR         DATE            Description
 
     const returnBtn = document.getElementById("returnToCategories");
     returnBtn.onclick = function () {
-        window.location.reload();
+        //window.location.reload();
         const cat = localStorage.getItem('fileArray');
         console.log('returnBtn ' + JSON.stringify(cat));
         localStorage.removeItem('fileArray');
