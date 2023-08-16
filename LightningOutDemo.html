@@ -255,7 +255,7 @@ VERSION  AUTHOR         DATE            Description
         console.log('in out after removal cat' + JSON.stringify(cat));
     };
 
-  window.addEventListener('load', function() {
+  window.addEventListener('beforeunload', function() {
         window.localStorage.removeItem('fileArray');
             console.log('onload');
 
