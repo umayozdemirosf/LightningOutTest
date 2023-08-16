@@ -248,19 +248,8 @@ VERSION  AUTHOR         DATE            Description
 
     const returnBtn = document.getElementById("returnToCategories");
     returnBtn.onclick = function () {
-        //window.location.reload();
-        const cat = window.localStorage.getItem('fileArray');
-        console.log('in out cat' + JSON.stringify(cat));
-        window.localStorage.removeItem('fileArray');
-        console.log('in out after removal cat' + JSON.stringify(cat));
+        window.location.reload();
     };
-
-  window.addEventListener('beforeunload', function() {
-        window.localStorage.removeItem('fileArray');
-    alert('hey');
-            console.log('onload');
-
-});
 
     $Lightning.use(
         appName,
