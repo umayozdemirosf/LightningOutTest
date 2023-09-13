@@ -91,7 +91,9 @@ VERSION  AUTHOR         DATE            Description
     }
 
     .container {
-        width: 100%;      
+        width: 100%;
+        display: inline-flex;
+        flex-direction: row;        
     }
   
     .articlesGrid {
@@ -142,14 +144,14 @@ VERSION  AUTHOR         DATE            Description
         .container {
             flex-direction: column;
         }
-        
+
         .buttonContainer {
             width: 100%;
         }
     }
 </style>
 <script src="https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
-<div class="container" id="articlesContainer" style = "display: inline-flex; flex-direction: row;">
+<div class="container" id="categoriesContainer">
     <!-- FAQ LWC Component will be created in this div by the script. This div can be placed anywhere on the page based on requirements -->
     <div data-lightning-out="true" class="articlesGrid"></div>
     <div class="buttonContainer">
@@ -226,12 +228,12 @@ VERSION  AUTHOR         DATE            Description
     const createCaseDiv = document.querySelector("[data-lightning-out-case]");
     const buttonDiv = document.querySelector("[data-button]");
     const createbtn = document.getElementById("createCase");
-    const articlesContainer = document.getElementById("articlesContainer");
+    const categoriesContainer = document.getElementById("categoriesContainer");
     createbtn.onclick = function () {
         createCaseDiv.style.display = "block";
         buttonDiv.style.display = "none";
         articlesDiv.style.display = "none";
-        articlesContainer.style.display = "block";
+        categoriesContainer.remove();
     };
 
     const returnBtn = document.getElementById("returnToCategories");
