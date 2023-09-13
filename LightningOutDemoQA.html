@@ -117,6 +117,9 @@ VERSION  AUTHOR         DATE            Description
         right: -15%;
     }
 
+  .flowClass {
+        display:block;
+  }
     @media only screen and (max-width: 600px) {
         .articlesGrid {
             width: 100%;
@@ -151,7 +154,7 @@ VERSION  AUTHOR         DATE            Description
     }
 </style>
 <script src="https://loccitane--ccareqa.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
-
+<div>
 <div class="container">
     <!-- FAQ LWC Component will be created in this div by the script. This div can be placed anywhere on the page based on requirements -->
     <div data-lightning-out="true" class="articlesGrid"></div>
@@ -163,12 +166,15 @@ VERSION  AUTHOR         DATE            Description
         </div>
     </div>
 </div>
+<div class="flowClass">
 <div data-lightning-out-case="true" style="display:none;" class="contactForm">
         <h1 style="margin:10px;">Contact Us</h1>
         <p id="returnToCategories" class="backLink">
             <span>&lt;Return to Categories</span>
         </p>
 </div>
+</div>
+  <div>
 <script>
 
     const appName = 'c:OSF_ArticlesDependencyApp';
