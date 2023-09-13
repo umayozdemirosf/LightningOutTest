@@ -160,7 +160,7 @@ VERSION  AUTHOR         DATE            Description
 </style>
 <script src="https://loccitane--ccareqa.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
   
-<div id="containerId" class="container">
+<div id="containerId" style="display:flex; flex-direction:row; width:100%">
     <!-- FAQ LWC Component will be created in this div by the script. This div can be placed anywhere on the page based on requirements -->
     <div data-lightning-out="true" class="articlesGrid"></div>
     <div class="buttonContainer">
@@ -249,14 +249,16 @@ VERSION  AUTHOR         DATE            Description
         articlesDiv.style.display = "none";
         //containerDiv.style.display = "";
       console.log('containerDiv' + containerDiv);
-       containerDiv.classList.remove("container");
-      containerDiv.classList.add("containerSecondary");
+             containerDiv.style.display = "block";
+      
+       /*containerDiv.classList.remove("container");
+      containerDiv.classList.add("containerSecondary");*/
 
       
-      const styleSheet = document.styleSheets[0];
+     /* const styleSheet = document.styleSheets[0];
       const rules = styleSheet.cssRules || styleSheet.rules;
       
-      /*for (let i = 0; i < rules.length; i++) {
+      for (let i = 0; i < rules.length; i++) {
         const rule = rules[i];
         if (rule.selectorText === ".container") {
           rule.style.display = "block";
