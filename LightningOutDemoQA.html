@@ -95,11 +95,6 @@ VERSION  AUTHOR         DATE            Description
         display: inline-flex;
         flex-direction: row;        
     }
-
-    .containerSecondary {
-        width: 100%;
-        display: block;
-    }
   
     .articlesGrid {
         width: 70%;
@@ -122,9 +117,6 @@ VERSION  AUTHOR         DATE            Description
         right: -15%;
     }
 
-  .flowClass {
-        display:block;
-  }
     @media only screen and (max-width: 600px) {
         .articlesGrid {
             width: 100%;
@@ -159,8 +151,8 @@ VERSION  AUTHOR         DATE            Description
     }
 </style>
 <script src="https://loccitane--ccareqa.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
-  
-<div id="containerId" style="display:flex; flex-direction:row; width:100%">
+
+<div class="container">
     <!-- FAQ LWC Component will be created in this div by the script. This div can be placed anywhere on the page based on requirements -->
     <div data-lightning-out="true" class="articlesGrid"></div>
     <div class="buttonContainer">
@@ -171,15 +163,12 @@ VERSION  AUTHOR         DATE            Description
         </div>
     </div>
 </div>
-<div class="flowClass">
 <div data-lightning-out-case="true" style="display:none;" class="contactForm">
         <h1 style="margin:10px;">Contact Us</h1>
         <p id="returnToCategories" class="backLink">
             <span>&lt;Return to Categories</span>
         </p>
 </div>
-</div>
-  
 <script>
 
     const appName = 'c:OSF_ArticlesDependencyApp';
@@ -240,22 +229,12 @@ VERSION  AUTHOR         DATE            Description
     const createCaseDiv = document.querySelector("[data-lightning-out-case]");
     const buttonDiv = document.querySelector("[data-button]");
     const createbtn = document.getElementById("createCase");
-    // const containerDiv = document.getElementsByClassName("container")[0];
-
-    const containerDiv = document.getElementById("containerId");
+  
     createbtn.onclick = function () {
         createCaseDiv.style.display = "block";
         buttonDiv.style.display = "none";
         articlesDiv.style.display = "none";
-        //containerDiv.style.display = "";
-      console.log('containerDiv' + containerDiv);
-             containerDiv.style.display = "block";
-      
-       /*containerDiv.classList.remove("container");
-      containerDiv.classList.add("containerSecondary");*/
-
-      
-     /* const styleSheet = document.styleSheets[0];
+      const styleSheet = document.styleSheets[0];
       const rules = styleSheet.cssRules || styleSheet.rules;
       
       for (let i = 0; i < rules.length; i++) {
@@ -264,7 +243,7 @@ VERSION  AUTHOR         DATE            Description
           rule.style.display = "block";
           break;
         }
-      }*/
+      }
     };
 
     const returnBtn = document.getElementById("returnToCategories");
