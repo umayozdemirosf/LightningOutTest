@@ -35,7 +35,44 @@ VERSION  AUTHOR         DATE            Description
     span {
         font-family: var(--fontFamily) !important;
     }
-
+  .slds-form-element__label {
+      font-size: 12px !important;
+  }
+  .slds-select {
+      font-size: 12px !important;
+  	height: 32px !important;
+  }
+  .slds-textarea {
+      font-size: 12px !important;
+  }
+  .slds-scope h1 {
+      font-size: 16px !important;
+  }
+  .slds-input {
+      font-size: 12px !important;
+  	height: 32px !important;
+  }
+  .slds-text-heading_small {
+      font-size: 16px !important;
+  }
+  .slds-file-selector_files {
+      font-size: 13px !important;
+  }
+  .slds-button {
+      line-height: 30px !important;
+  }
+  button.slds-button.slds-button_brand {
+      font-size: 12px;
+  }
+  .slds-select_container:after {
+      bottom: 8px !important;
+  }
+  .slds-select_container:before {
+      top: 8px !important;
+  }
+  .container {
+    max-width: 100% !important;
+  }
     #createCase {
         width: 230px;
         background-color: #ffcb00;
@@ -48,11 +85,10 @@ VERSION  AUTHOR         DATE            Description
     }
 
     #returnToCategories {
-        font-size: 14px;
-        font-weight: 700;
+        font-size: 12.8px;
+        font-weight: 500;
         margin: 20px 10px;
-        color: #001022;
-        line-height: 20px;
+        color: #495460;
     }
 
     #returnToCategories:hover {
@@ -91,10 +127,15 @@ VERSION  AUTHOR         DATE            Description
         color: #001022 !important;
     }
 
-    .container {
+    .articlesContainer {
         width: 100%;
         display: inline-flex;
         flex-direction: row;        
+    }
+
+    .contactFormContainer {
+        width: 100%;
+        display: block;
     }
   
     .articlesGrid {
@@ -142,7 +183,7 @@ VERSION  AUTHOR         DATE            Description
             width: 100%;
         }
 
-        .container {
+        .articlesContainer {
             flex-direction: column;
         }
 
@@ -152,7 +193,7 @@ VERSION  AUTHOR         DATE            Description
     }
 </style>
 <script src="https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
-<div class="container">
+<div class="articlesContainer" id="categoriesContainer">
     <!-- FAQ LWC Component will be created in this div by the script. This div can be placed anywhere on the page based on requirements -->
     <div data-lightning-out="true" class="articlesGrid"></div>
     <div class="buttonContainer">
@@ -163,11 +204,13 @@ VERSION  AUTHOR         DATE            Description
         </div>
     </div>
 </div>
-<div data-lightning-out-case="true" style="display:none;" class="contactForm">
-        <h1 style="margin:10px;">Contact Us</h1>
-        <p id="returnToCategories" class="backLink">
-            <span>&lt;Return to Categories</span>
-        </p>
+<div class="contactFormContainer">
+    <div data-lightning-out-case="true" style="display:none;" class="contactForm">
+            <h1 style="margin:10px;">Contact Us</h1>
+            <p id="returnToCategories" class="backLink">
+                <span>&lt;Return to Categories</span>
+            </p>
+    </div>
 </div>
 <script>
 
@@ -229,22 +272,11 @@ VERSION  AUTHOR         DATE            Description
     const createCaseDiv = document.querySelector("[data-lightning-out-case]");
     const buttonDiv = document.querySelector("[data-button]");
     const createbtn = document.getElementById("createCase");
-  
+    const categoriesContainer = document.getElementById("categoriesContainer");
     createbtn.onclick = function () {
         createCaseDiv.style.display = "block";
         buttonDiv.style.display = "none";
-        articlesDiv.style.display = "none";
-
-      const styleSheet = document.styleSheets[0];
-      const rules = styleSheet.cssRules || styleSheet.rules;
-      
-      for (let i = 0; i < rules.length; i++) {
-        const rule = rules[i];
-        if (rule.selectorText === ".container") {
-          rule.style.display = "block";
-          break;
-        }
-      } 
+        categoriesContainer.remove();
     };
 
     const returnBtn = document.getElementById("returnToCategories");
