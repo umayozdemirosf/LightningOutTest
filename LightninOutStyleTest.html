@@ -95,6 +95,11 @@ VERSION  AUTHOR         DATE            Description
         display: inline-flex;
         flex-direction: row;        
     }
+
+    .contactFormContainer {
+        width: 100%;
+        display: block;
+    }
   
     .articlesGrid {
         width: 70%;
@@ -162,12 +167,13 @@ VERSION  AUTHOR         DATE            Description
         </div>
     </div>
 </div>
-<div style="display:block;width:100%;"></div>
-<div data-lightning-out-case="true" style="display:none;" class="contactForm">
-        <h1 style="margin:10px;">Contact Us</h1>
-        <p id="returnToCategories" class="backLink">
-            <span>&lt;Return to Categories</span>
-        </p>
+<div class="contactFormContainer">
+    <div data-lightning-out-case="true" style="display:none;" class="contactForm">
+            <h1 style="margin:10px;">Contact Us</h1>
+            <p id="returnToCategories" class="backLink">
+                <span>&lt;Return to Categories</span>
+            </p>
+    </div>
 </div>
 <script>
 
