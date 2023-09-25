@@ -77,12 +77,14 @@ VERSION  AUTHOR         DATE            Description
   .slds-select_container:before {
       top: 8px !important;
   }
-  .slds-notify_toast 
+  .slds-notify_toast {
+      min-width: var(--slds-c-toast-sizing-min-width, var(--sds-c-toast-sizing-min-width, 480px));
+  }
   .slds-notify__close {
-      top: 12px !important;
-      right: 12px !important;
-      margin-left: 4px !important;
-      
+      top: 0px !important;
+  }
+  .slds-notify__close .slds-button:hover {
+      background-color: unset !important;
   }
   .slds-button__icon_small {
       width: 12px !important;
@@ -92,9 +94,9 @@ VERSION  AUTHOR         DATE            Description
       margin-top: 20px;
   }
   .container {
-    max-width: 100% !important;
+      max-width: 100% !important;
   }
-    #createCase {
+  #createCase {
         width: 230px;
         background-color: #ffcb00;
         height: 46px;
