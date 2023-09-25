@@ -251,7 +251,20 @@ VERSION  AUTHOR         DATE            Description
 
         function setBrandCSSVariable(brand) {
             if (brand === 'loccitane') {
-                root.style.setProperty('--fullUrl', 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/resource/OSF_New_LOccitane_Fonts/LOccitaneSans-Medium.woff');
+              fetch('https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/resource/OSF_New_LOccitane_Fonts/LOccitaneSans-Medium.woff', {
+                  headers: {
+                    'Access-Control-Allow-Origin': 'https://umayozdemirosf.github.io' // Replace with your domain
+                  }
+                })
+                .then(response => response.blob())
+                .then(blob => {
+                  const fontUrl = URL.createObjectURL(blob);
+                  root.style.setProperty('--fullUrl', fontUrl);
+                })
+                .catch(error => {
+                  console.error('Error fetching font:', error);
+                });
+           //     root.style.setProperty('--fullUrl', 'https://loccitane--osfccare.sandbox.my.site.com/loccitanecustomercare/resource/OSF_New_LOccitane_Fonts/LOccitaneSans-Medium.woff');
                 root.style.setProperty('--fontFormat', 'woff');
                 root.style.setProperty('--fontFamily', 'LOccitane Sans Medium');
                 const button = document.getElementById('buttonLabel');
