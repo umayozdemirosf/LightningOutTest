@@ -107,6 +107,18 @@ VERSION  AUTHOR         DATE            Description
         text-align: center;
     }
 
+    #returnToCategories {
+        font-size: 12.8px;
+        font-weight: 500;
+        margin: 20px 10px;
+        color: #495460;
+    }
+
+    #returnToCategories:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
     #buttonLabel {
         text-transform: uppercase;
         border: 0 !important;
@@ -218,6 +230,10 @@ VERSION  AUTHOR         DATE            Description
 </div>
 <div class="contactFormContainer">
     <div data-lightning-out-case="true" style="display:none;" class="contactForm">
+            <h1 style="margin:10px;">Contact Us</h1>
+            <p id="returnToCategories" class="backLink">
+                <span>&lt;Return to Categories</span>
+            </p>
     </div>
 </div>
 <script>
@@ -285,6 +301,11 @@ VERSION  AUTHOR         DATE            Description
         createCaseDiv.style.display = "block";
         buttonDiv.style.display = "none";
         categoriesContainer.remove();
+    };
+
+    const returnBtn = document.getElementById("returnToCategories");
+    returnBtn.onclick = function () {
+        window.location.reload();
     };
 
     $Lightning.use(
