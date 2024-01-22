@@ -311,7 +311,8 @@ VERSION  AUTHOR         DATE            Description
         urlPart = 'en_US';
       }
 
-      window.location.href = 'https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=ja';
+      window.location.href = `https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=${urlPart}`;
+
     };
 
     const returnBtn = document.getElementById("returnToCategories");
