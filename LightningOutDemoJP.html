@@ -244,7 +244,7 @@ VERSION  AUTHOR         DATE            Description
     const lightningEndpoint = 'https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare';
     const articlesDiv = document.querySelector("[data-lightning-out]");
     // The attributes that will be passed to the LWC component
-    const articlesGridAttributes = { brand: 'loccitane', country: 'JP' };
+    const articlesGridAttributes = { brand: 'loccitane', country: 'JP', locale: 'ja' };
 
     document.addEventListener('DOMContentLoaded', function () {
         const root = document.documentElement;
@@ -301,7 +301,17 @@ VERSION  AUTHOR         DATE            Description
         // createCaseDiv.style.display = "block";
         // buttonDiv.style.display = "none";
         categoriesContainer.remove();
-        window.location.href = "https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=en_US";
+      let urlPart;
+
+      if (articlesGridAttributes.locale === 'ja') {
+        urlPart = 'ja_JP';
+      } else if (articlesGridAttributes.locale === 'en_US') {
+        urlPart = 'en_US';
+      } else {
+        urlPart = 'en_US';
+      }
+
+      window.location.href = `https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=${urlPart}`;
     };
 
     const returnBtn = document.getElementById("returnToCategories");
