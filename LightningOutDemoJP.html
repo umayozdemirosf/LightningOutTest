@@ -236,7 +236,7 @@ VERSION  AUTHOR         DATE            Description
 
     const appName = 'c:OSF_ArticlesDependencyApp';
     const articlesGridComponent = 'c:osfArticleCategoriesGrid';
-    const createCaseComponent = 'c:osfContactUs';
+    // const createCaseComponent = 'c:osfContactUs';
     const lightningEndpoint = 'https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare';
     const articlesDiv = document.querySelector("[data-lightning-out]");
     // The attributes that will be passed to the LWC component
@@ -289,7 +289,7 @@ VERSION  AUTHOR         DATE            Description
         lightningEndpoint
     );
 
-    const createCaseDiv = document.querySelector("[data-lightning-out-case]");
+    //const createCaseDiv = document.querySelector("[data-lightning-out-case]");
     const buttonDiv = document.querySelector("[data-button]");
     const createbtn = document.getElementById("createCase");
     const categoriesContainer = document.getElementById("categoriesContainer");
@@ -309,24 +309,25 @@ VERSION  AUTHOR         DATE            Description
 
       window.location.href = `https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=${urlPart}`;
     };
-
+/*
     const returnBtn = document.getElementById("returnToCategories");
     returnBtn.onclick = function () {
         window.location.reload();
     };
-
+  
     $Lightning.use(
         appName,
         function () {
             $Lightning.createComponent(
-                createCaseComponent,
+               // createCaseComponent,
                 articlesGridAttributes,
-                createCaseDiv,
+               // createCaseDiv,
                 function (cmp) {
                 }
             );
         },
         lightningEndpoint
     ); 
+    */
 </script>
 </html>
