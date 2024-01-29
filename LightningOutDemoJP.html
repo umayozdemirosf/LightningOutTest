@@ -211,19 +211,12 @@ VERSION  AUTHOR         DATE            Description
             flex-direction: column;
         }
 
-        .articlesSubContainer {
-            flex-direction: row;
-        }
-
         .buttonContainer {
             width: 100%;
         }
     }
 </style>
 <script src="https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
-<div>
-<h1 class="title-class">Categories</h1>
-</div>
 <div class="articlesContainer" id="categoriesContainer">
     <!-- FAQ LWC Component will be created in this div by the script. This div can be placed anywhere on the page based on requirements -->
     <div data-lightning-out="true" class="articlesGrid"></div>
@@ -247,7 +240,7 @@ VERSION  AUTHOR         DATE            Description
     const lightningEndpoint = 'https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare';
     const articlesDiv = document.querySelector("[data-lightning-out]");
     // The attributes that will be passed to the LWC component
-    const articlesGridAttributes = { brand: 'melvita', country: 'JP', locale: 'ja' };
+    const articlesGridAttributes = { brand: 'loccitane', country: 'JP', locale: 'ja' };
 
     document.addEventListener('DOMContentLoaded', function () {
         const root = document.documentElement;
@@ -258,7 +251,7 @@ VERSION  AUTHOR         DATE            Description
                 root.style.setProperty('--fontFormat', 'woff');
                 root.style.setProperty('--fontFamily', 'LOccitane Sans Medium');
                 const button = document.getElementById('buttonLabel');
-                button.classList.add('buttonLoccitane'); 
+                button.classList.add('buttonLoccitane');
 
             } else if (brand === 'erborian') {
                 root.style.setProperty('--fullUrl', 'https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/resource/OSF_New_HKGrotesk_Fonts/HKGrotesk-Medium.otf');
@@ -315,7 +308,6 @@ VERSION  AUTHOR         DATE            Description
       }
 
       window.location.href = `https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=${urlPart}`;
-
     };
 
     const returnBtn = document.getElementById("returnToCategories");
