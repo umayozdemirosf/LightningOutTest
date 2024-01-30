@@ -15,6 +15,7 @@ Kenan Cetin                    KC
 ********************************************************************************
 VERSION  AUTHOR         DATE            Description
 1.0       UA	     20/07/2023		   initial version
+2.0       UA	     30/01/2024		   Cross Link Version
  -->
 <!-- This meta tag added to support mobile devices. It can be omitted if the page already has the tag -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -236,7 +237,6 @@ VERSION  AUTHOR         DATE            Description
 
     const appName = 'c:OSF_ArticlesDependencyApp';
     const articlesGridComponent = 'c:osfArticleCategoriesGrid';
-    // const createCaseComponent = 'c:osfContactUs';
     const lightningEndpoint = 'https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare';
     const articlesDiv = document.querySelector("[data-lightning-out]");
     // The attributes that will be passed to the LWC component
@@ -289,13 +289,11 @@ VERSION  AUTHOR         DATE            Description
         lightningEndpoint
     );
 
-    //const createCaseDiv = document.querySelector("[data-lightning-out-case]");
     const buttonDiv = document.querySelector("[data-button]");
     const createbtn = document.getElementById("createCase");
     const categoriesContainer = document.getElementById("categoriesContainer");
+
     createbtn.onclick = function () {
-        // createCaseDiv.style.display = "block";
-        // buttonDiv.style.display = "none";
         categoriesContainer.remove();
       let urlPart;
       if (articlesGridAttributes.locale === 'ja') {
@@ -310,25 +308,5 @@ VERSION  AUTHOR         DATE            Description
 
       window.location.href = `https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=${urlPart}&brand=${brandName}&country=${countryCode}`;
     };
-/*
-    const returnBtn = document.getElementById("returnToCategories");
-    returnBtn.onclick = function () {
-        window.location.reload();
-    };
-  
-    $Lightning.use(
-        appName,
-        function () {
-            $Lightning.createComponent(
-               // createCaseComponent,
-                articlesGridAttributes,
-               // createCaseDiv,
-                function (cmp) {
-                }
-            );
-        },
-        lightningEndpoint
-    ); 
-    */
 </script>
 </html>
