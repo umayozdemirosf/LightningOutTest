@@ -1,0 +1,326 @@
+<html>
+<!-- 
+Project      : Kokoro
+Created By   : Salesforce Core
+Created Date : 20/07/2023
+Description  : Lightning out script for the Help Center and Web-to-Case pages
+Notes        : a) The brand and country info to be sent dynamically to the LWC
+               b) The endpoints for script and used static resource should be updated
+                  based on the environment 
+History      :
+**************************ACRONYM OF AUTHORS************************************
+AUTHOR                      ACRONYM
+Umay Ozdemir                   UA
+Kenan Cetin                    KC
+********************************************************************************
+VERSION  AUTHOR         DATE            Description
+1.0       UA	     20/07/2023		   initial version
+ -->
+<!-- This meta tag added to support mobile devices. It can be omitted if the page already has the tag -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style id="myStyles">
+    :host {
+        --url: url(var(--fullUrl));
+    }
+
+    @font-face {
+        font-family: var(--fontFamily);
+        src: var(--url) format(var(--fontFormat));
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    span {
+        font-family: var(--fontFamily) !important;
+    }
+  .slds-form-element__label {
+      font-size: 12px !important;
+  }
+  .slds-select {
+      font-size: 12px !important;
+  	height: 32px !important;
+  }
+  .slds-textarea {
+      font-size: 12px !important;
+  }
+  .slds-scope h1 {
+      font-size: 16px !important;
+  }
+  .slds-input {
+      font-size: 12px !important;
+  	  height: 32px !important;
+  }
+  .slds-text-heading_small {
+      font-size: 16px !important;
+  }
+  .slds-text-body_small {
+      font-size: 12px !important;
+      padding-left: 7px !important;
+  }
+  .flowruntime-input-error {
+      font-size: 12px !important;
+  }
+  .slds-file-selector_files {
+      font-size: 13px !important;
+  }
+  .slds-button {
+      line-height: 30px !important;
+  }
+  button.slds-button.slds-button_brand {
+      font-size: 12px;
+  }
+  .slds-select_container:after {
+      bottom: 8px !important;
+  }
+  .slds-select_container:before {
+      top: 8px !important;
+  }
+  .slds-notify_toast {
+      min-width: var(--slds-c-toast-sizing-min-width, var(--sds-c-toast-sizing-min-width, 480px));
+  }
+  .slds-notify__close {
+      top: 0px !important;
+  }
+  .slds-notify__close .slds-button:hover {
+      background-color: unset !important;
+  }
+  .slds-button__icon_small {
+      width: 12px !important;
+      height: 12px !important;
+  }
+  .slds-notify_container {
+      margin-top: 20px;
+  }
+  .container {
+      max-width: 100% !important;
+  }
+    #createCase {
+        width: 230px;
+        background-color: #ffcb00;
+        height: 46px;
+        border: none;
+        font-weight: 700;
+        cursor: pointer;
+        display: block;
+        text-align: center;
+    }
+
+    #returnToCategories {
+        font-size: 12.8px;
+        font-weight: 500;
+        margin: 20px 10px;
+        color: #495460;
+    }
+
+    #returnToCategories:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    #buttonLabel {
+        text-transform: uppercase;
+        border: 0 !important;
+        margin: 0;
+        background: 0 0;
+        display: block;
+        font-family: var(--fontFamily) !important;
+    }
+
+    .buttonLoccitane {
+
+        font-size: 14px !important;
+        line-height: 20px !important;
+        font-weight: 500 !important;
+        color: #001022 !important;
+    }
+
+    .buttonMelvita {
+        font-size: 16px !important;
+        line-height: 22px !important;
+        font-weight: 600 !important;
+        color: #3F2A2E !important;
+    }
+
+    .buttonErborian {
+        font-size: 16px !important;
+        line-height: 22px !important;
+        font-weight: 600 !important;
+        color: #001022 !important;
+    }
+
+    .articlesContainer {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: row;        
+    }
+
+    .contactFormContainer {
+        width: 100%;
+        display: block;
+    }
+  
+    .articlesGrid {
+        width: 70%;
+        display: block;
+    }
+
+    .contactForm {
+        width: 100%;
+    }
+
+    .buttonContainer {
+        width: 30%;
+        position: relative;
+        display: flex;
+    }
+
+    .buttonClass {
+        position: relative;
+        top: 30%;
+        right: -15%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .articlesGrid {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    @media only screen and (max-width: 1300px) {
+        .buttonClass {
+            position: relative;
+            top: unset;
+            right: unset;
+            margin-top: 20px;
+            width: 100%;
+            padding: 5px;
+        }
+
+        #createCase {
+            width: 100%;
+        }
+
+        .articlesGrid {
+            width: 100%;
+        }
+
+        .articlesContainer {
+            flex-direction: column;
+        }
+
+        .buttonContainer {
+            width: 100%;
+        }
+    }
+</style>
+<script src="https://loccitane.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
+<div class="articlesContainer" id="categoriesContainer">
+    <!-- FAQ LWC Component will be created in this div by the script. This div can be placed anywhere on the page based on requirements -->
+    <div data-lightning-out="true" class="articlesGrid"></div>
+    <div class="buttonContainer">
+        <div data-button="true" class="buttonClass">
+            <button id="createCase">
+                <h3 id="buttonLabel">Contact Us</h3>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="contactFormContainer">
+    <div data-lightning-out-case="true" style="display:none;" class="contactForm">
+            <h1 style="margin:10px;">Contact Us</h1>
+            <p id="returnToCategories" class="backLink">
+                <span>&lt;Return to Categories</span>
+            </p>
+    </div>
+</div>
+<script>
+
+    const appName = 'c:OSF_ArticlesDependencyApp';
+    const articlesGridComponent = 'c:osfArticleCategoriesGrid';
+    const createCaseComponent = 'c:osfContactUs';
+    const lightningEndpoint = 'https://loccitane.my.site.com/loccitanecustomercare';
+    const articlesDiv = document.querySelector("[data-lightning-out]");
+    // The attributes that will be passed to the LWC component
+    const articlesGridAttributes = { brand: 'loccitane', country: 'UK' };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const root = document.documentElement;
+
+        function setBrandCSSVariable(brand) {
+            if (brand === 'loccitane') {
+                root.style.setProperty('--fullUrl', 'https://loccitane.my.site.com/loccitanecustomercare/resource/OSF_New_LOccitane_Fonts/LOccitaneSans-Medium.woff');
+                root.style.setProperty('--fontFormat', 'woff');
+                root.style.setProperty('--fontFamily', 'LOccitane Sans Medium');
+                const button = document.getElementById('buttonLabel');
+                button.classList.add('buttonLoccitane');
+
+            } else if (brand === 'erborian') {
+                root.style.setProperty('--fullUrl', 'https://loccitane.my.site.com/loccitanecustomercare/resource/OSF_New_HKGrotesk_Fonts/HKGrotesk-Medium.otf');
+                root.style.setProperty('--fontFormat', 'opentype');
+                root.style.setProperty('--fontFamily', 'HK Grotesk Medium');
+
+                const button = document.getElementById('buttonLabel');
+                button.classList.add('buttonErborian');
+            } else if (brand === 'melvita') {
+                root.style.setProperty('--fullUrl', 'https://loccitane.my.site.com/loccitanecustomercare/resource/OSF_New_Futura_Fonts/FuturaStdMedium.otf');
+                root.style.setProperty('--fontFormat', 'opentype');
+                root.style.setProperty('--fontFamily', 'Futura Std Medium');
+
+                const button = document.getElementById('buttonLabel');
+                button.classList.add('buttonMelvita');
+            }
+        }
+
+        const brand = articlesGridAttributes.brand;
+
+        setBrandCSSVariable(brand);
+    });
+
+    $Lightning.use(
+        appName,
+        function () {
+            $Lightning.createComponent(
+                articlesGridComponent,
+                articlesGridAttributes,
+                articlesDiv,
+                function (cmp) {
+                }
+            );
+        },
+        lightningEndpoint
+    );
+
+    const createCaseDiv = document.querySelector("[data-lightning-out-case]");
+    const buttonDiv = document.querySelector("[data-button]");
+    const createbtn = document.getElementById("createCase");
+    const categoriesContainer = document.getElementById("categoriesContainer");
+    createbtn.onclick = function () {
+        createCaseDiv.style.display = "block";
+        buttonDiv.style.display = "none";
+        categoriesContainer.remove();
+    };
+
+    const returnBtn = document.getElementById("returnToCategories");
+    returnBtn.onclick = function () {
+        window.location.reload();
+    };
+
+    $Lightning.use(
+        appName,
+        function () {
+            $Lightning.createComponent(
+                createCaseComponent,
+                articlesGridAttributes,
+                createCaseDiv,
+                function (cmp) {
+                }
+            );
+        },
+        lightningEndpoint
+    ); 
+</script>
+
+</html>
