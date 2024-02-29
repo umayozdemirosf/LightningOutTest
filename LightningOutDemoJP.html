@@ -231,9 +231,10 @@ VERSION  AUTHOR         DATE            Description
 </div>
 <div class="contactFormContainer">
     <div data-lightning-out-case="true" class="contactForm">
-      <iframe src="https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=ja&brand=loccitane&country=JP" height="1000" width="3000" title="description"></iframe>
+      <iframe id="contactFormIframe" src="https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=en_US&brand=loccitane&country=UK" height="1000" width="3000" title="description"></iframe>
     </div>
 </div>
+
 <script>
 
     const appName = 'c:OSF_ArticlesDependencyApp';
@@ -299,7 +300,14 @@ VERSION  AUTHOR         DATE            Description
       let urlPart = articlesGridAttributes.locale;
       let brandName = articlesGridAttributes.brand;
       let countryCode = articlesGridAttributes.country;
+      // Construct the new URL using the variables
+      let newIframeSrc = `https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=${urlPart}&brand=${brandName}&country=${countryCode}`;
 
+      // Get the iframe element by its id
+      let contactFormIframe = document.getElementById('contactFormIframe');
+
+      // Set the new src attribute
+      contactFormIframe.src = newIframeSrc;
       // window.location.href = `https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=${urlPart}&brand=${brandName}&country=${countryCode}`;
     };
 </script>
