@@ -175,12 +175,14 @@ VERSION  AUTHOR         DATE            Description
         width: 30%;
         position: relative;
         display: flex;
+        flex-direction: column;
     }
 
     .buttonClass {
         position: relative;
         top: 30%;
         right: -15%;
+        margin-top: 10px;
     }
 
     @media only screen and (max-width: 600px) {
@@ -224,12 +226,12 @@ VERSION  AUTHOR         DATE            Description
     <div class="buttonContainer">
         <div data-button="true" class="buttonClass">
             <button id="createCase">
-                <h3 id="buttonLabel">Contact Us</h3>
+                <h3 id="buttonLabel">Contact Us via cross link</h3>
             </button>
         </div>
         <div data-button="true" class="buttonClass">
             <button id="createCase2">
-                <h3 id="buttonLabel2">Contact Us</h3>
+                <h3 id="buttonLabel">Contact Us via iframe</h3>
             </button>
         </div>
     </div>
