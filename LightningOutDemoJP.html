@@ -227,14 +227,18 @@ VERSION  AUTHOR         DATE            Description
                 <h3 id="buttonLabel">Contact Us</h3>
             </button>
         </div>
+        <div data-button="true" class="buttonClass">
+            <button id="createCase2">
+                <h3 id="buttonLabel2">Contact Us</h3>
+            </button>
+        </div>
     </div>
 </div>
-<div class="contactFormContainer">
-    <div data-lightning-out-case="true" class="contactForm">
-      <iframe id="contactFormIframe" src="https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=en_US&brand=loccitane&country=UK" height="1000" width="3000" title="description"></iframe>
-    </div>
+<div data-lightning-out-case="true" style="display:none;" class="contactForm">
+  <iframe id="contactFormIframe" src="https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=en_US&brand=loccitane&country=UK" height="2000" width="1000" title="description"></iframe>
 </div>
 
+  
 <script>
 
     const appName = 'c:OSF_ArticlesDependencyApp';
@@ -293,9 +297,19 @@ VERSION  AUTHOR         DATE            Description
 
     const buttonDiv = document.querySelector("[data-button]");
     const createbtn = document.getElementById("createCase");
+    const createbtn2 = document.getElementById("createCase2");
     const categoriesContainer = document.getElementById("categoriesContainer");
 
     createbtn.onclick = function () {
+        categoriesContainer.remove();
+      let urlPart = articlesGridAttributes.locale;
+      let brandName = articlesGridAttributes.brand;
+      let countryCode = articlesGridAttributes.country;
+
+      window.location.href = `https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=${urlPart}&brand=${brandName}&country=${countryCode}`;
+    };
+
+    createbtn2.onclick = function () {
         categoriesContainer.remove();
       let urlPart = articlesGridAttributes.locale;
       let brandName = articlesGridAttributes.brand;
