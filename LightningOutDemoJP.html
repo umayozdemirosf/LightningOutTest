@@ -305,9 +305,11 @@ VERSION  AUTHOR         DATE            Description
 
       // Get the iframe element by its id
       let contactFormIframe = document.getElementById('contactFormIframe');
-
+      console.log('contactFormIframe:::' + contactFormIframe);
       // Set the new src attribute
       contactFormIframe.src = newIframeSrc;
+      console.log('contactFormIframe 2:::' + contactFormIframe);
+
       // window.location.href = `https://loccitane--ccarejp.sandbox.my.site.com/loccitanecustomercare/s/contact-us?language=${urlPart}&brand=${brandName}&country=${countryCode}`;
     };
 </script>
