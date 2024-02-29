@@ -292,6 +292,7 @@ VERSION  AUTHOR         DATE            Description
     const createbtn = document.getElementById("createCase");
     const categoriesContainer = document.getElementById("categoriesContainer");
 
+
     createbtn.onclick = function () {
         categoriesContainer.remove();
       let urlPart = articlesGridAttributes.locale;
