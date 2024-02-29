@@ -294,7 +294,7 @@ VERSION  AUTHOR         DATE            Description
         },
         lightningEndpoint
     );
-
+    const createCaseDiv = document.querySelector("[data-lightning-out-case]");
     const buttonDiv = document.querySelector("[data-button]");
     const createbtn = document.getElementById("createCase");
     const createbtn2 = document.getElementById("createCase2");
@@ -311,6 +311,8 @@ VERSION  AUTHOR         DATE            Description
 
     createbtn2.onclick = function () {
         categoriesContainer.remove();
+      createCaseDiv.style.display = "block";
+        buttonDiv.style.display = "none";
       let urlPart = articlesGridAttributes.locale;
       let brandName = articlesGridAttributes.brand;
       let countryCode = articlesGridAttributes.country;
