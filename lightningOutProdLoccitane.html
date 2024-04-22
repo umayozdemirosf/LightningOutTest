@@ -96,7 +96,7 @@ VERSION  AUTHOR         DATE            Description
   .container {
       max-width: 100% !important;
   }
-    #createCase {
+  #createCase {
         width: 230px;
         background-color: #ffcb00;
         height: 46px;
@@ -230,21 +230,16 @@ VERSION  AUTHOR         DATE            Description
 </div>
 <div class="contactFormContainer">
     <div data-lightning-out-case="true" style="display:none;" class="contactForm">
-            <h1 style="margin:10px;">Contact Us</h1>
-            <p id="returnToCategories" class="backLink">
-                <span>&lt;Return to Categories</span>
-            </p>
     </div>
 </div>
 <script>
 
     const appName = 'c:OSF_ArticlesDependencyApp';
     const articlesGridComponent = 'c:osfArticleCategoriesGrid';
-    const createCaseComponent = 'c:osfContactUs';
     const lightningEndpoint = 'https://loccitane.my.site.com/loccitanecustomercare';
     const articlesDiv = document.querySelector("[data-lightning-out]");
     // The attributes that will be passed to the LWC component
-    const articlesGridAttributes = { brand: 'loccitane', country: 'UK' };
+    const articlesGridAttributes = { brand: 'loccitane', country: 'UK', locale: 'ja' };
 
     document.addEventListener('DOMContentLoaded', function () {
         const root = document.documentElement;
@@ -293,34 +288,17 @@ VERSION  AUTHOR         DATE            Description
         lightningEndpoint
     );
 
-    const createCaseDiv = document.querySelector("[data-lightning-out-case]");
     const buttonDiv = document.querySelector("[data-button]");
     const createbtn = document.getElementById("createCase");
     const categoriesContainer = document.getElementById("categoriesContainer");
+
     createbtn.onclick = function () {
-        createCaseDiv.style.display = "block";
-        buttonDiv.style.display = "none";
         categoriesContainer.remove();
-    };
+      let urlPart = articlesGridAttributes.locale;
+      let brandName = articlesGridAttributes.brand;
+      let countryCode = articlesGridAttributes.country;
 
-    const returnBtn = document.getElementById("returnToCategories");
-    returnBtn.onclick = function () {
-        window.location.reload();
+      window.location.href = `https://support.jp.loccitane.com/loccitanecustomercare/s/contact-us?language=${urlPart}&brand=${brandName}&country=${countryCode}`;
     };
-
-    $Lightning.use(
-        appName,
-        function () {
-            $Lightning.createComponent(
-                createCaseComponent,
-                articlesGridAttributes,
-                createCaseDiv,
-                function (cmp) {
-                }
-            );
-        },
-        lightningEndpoint
-    ); 
 </script>
-
 </html>
