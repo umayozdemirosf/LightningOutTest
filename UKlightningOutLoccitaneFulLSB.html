@@ -216,7 +216,7 @@ VERSION  AUTHOR         DATE            Description
         }
     }
 </style>
-<script src="https://test-support.uk.loccitane.com/loccitanecustomercare/lightning/lightning.out.js"></script>
+<script src="https://loccitane--fullsb.sandbox.my.site.com/loccitanecustomercare/lightning/lightning.out.js"></script>
 <div class="articlesContainer" id="categoriesContainer">
     <!-- FAQ LWC Component will be created in this div by the script. This div can be placed anywhere on the page based on requirements -->
     <div data-lightning-out="true" class="articlesGrid"></div>
@@ -236,7 +236,7 @@ VERSION  AUTHOR         DATE            Description
 
     const appName = 'c:OSF_ArticlesDependencyApp';
     const articlesGridComponent = 'c:osfArticleCategoriesGrid';
-    const lightningEndpoint = 'https://test-support.uk.loccitane.com/loccitanecustomercare';
+    const lightningEndpoint = 'https://loccitane--fullsb.sandbox.my.site.com/loccitanecustomercare';
     const articlesDiv = document.querySelector("[data-lightning-out]");
     // The attributes that will be passed to the LWC component
     const articlesGridAttributes = { brand: 'loccitane', country: 'UK', locale: 'en_GB' };
@@ -246,21 +246,21 @@ VERSION  AUTHOR         DATE            Description
 
         function setBrandCSSVariable(brand) {
             if (brand === 'loccitane') {
-                root.style.setProperty('--fullUrl', 'https://test-support.uk.loccitane.com/loccitanecustomercare/resource/OSF_New_LOccitane_Fonts/LOccitaneSans-Medium.woff');
+                root.style.setProperty('--fullUrl', 'https://loccitane--fullsb.sandbox.my.site.com/loccitanecustomercare/resource/OSF_New_LOccitane_Fonts/LOccitaneSans-Medium.woff');
                 root.style.setProperty('--fontFormat', 'woff');
                 root.style.setProperty('--fontFamily', 'LOccitane Sans Medium');
                 const button = document.getElementById('buttonLabel');
                 button.classList.add('buttonLoccitane');
 
             } else if (brand === 'erborian') {
-                root.style.setProperty('--fullUrl', 'https://test-support.uk.loccitane.com/loccitanecustomercare/resource/OSF_New_HKGrotesk_Fonts/HKGrotesk-Medium.otf');
+                root.style.setProperty('--fullUrl', 'https://loccitane--fullsb.sandbox.my.site.com/loccitanecustomercare/resource/OSF_New_HKGrotesk_Fonts/HKGrotesk-Medium.otf');
                 root.style.setProperty('--fontFormat', 'opentype');
                 root.style.setProperty('--fontFamily', 'HK Grotesk Medium');
 
                 const button = document.getElementById('buttonLabel');
                 button.classList.add('buttonErborian');
             } else if (brand === 'melvita') {
-                root.style.setProperty('--fullUrl', 'https://test-support.uk.loccitane.com/loccitanecustomercare/resource/OSF_New_Futura_Fonts/FuturaStdMedium.otf');
+                root.style.setProperty('--fullUrl', 'https://loccitane--fullsb.sandbox.my.site.com/loccitanecustomercare/resource/OSF_New_Futura_Fonts/FuturaStdMedium.otf');
                 root.style.setProperty('--fontFormat', 'opentype');
                 root.style.setProperty('--fontFamily', 'Futura Std Medium');
 
