@@ -15,6 +15,7 @@ Kenan Cetin                    KC
 ********************************************************************************
 VERSION  AUTHOR         DATE            Description
 1.0       UA	     20/07/2023		        initial version
+2.0       KC	     10/10/2024		        Removed some CSS
  -->
 <!-- This meta tag added to support mobile devices. It can be omitted if the page already has the tag -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,76 +24,6 @@ VERSION  AUTHOR         DATE            Description
         --url: url(var(--fullUrl));
     }
 
-    @font-face {
-        font-family: var(--fontFamily);
-        src: var(--url) format(var(--fontFormat));
-    }
-
-    h1,
-    h2,
-    h3,
-    p,
-    span {
-        font-family: var(--fontFamily) !important;
-    }
-  .slds-form-element__label {
-      font-size: 12px !important;
-  }
-  .slds-select {
-      font-size: 12px !important;
-  	height: 32px !important;
-  }
-  .slds-textarea {
-      font-size: 12px !important;
-  }
-  .slds-scope h1 {
-      font-size: 16px !important;
-  }
-  .slds-input {
-      font-size: 12px !important;
-  	  height: 32px !important;
-  }
-  .slds-text-heading_small {
-      font-size: 16px !important;
-  }
-  .slds-text-body_small {
-      font-size: 12px !important;
-      padding-left: 7px !important;
-  }
-  .flowruntime-input-error {
-      font-size: 12px !important;
-  }
-  .slds-file-selector_files {
-      font-size: 13px !important;
-  }
-  .slds-button {
-      line-height: 30px !important;
-  }
-  button.slds-button.slds-button_brand {
-      font-size: 12px;
-  }
-  .slds-select_container:after {
-      bottom: 8px !important;
-  }
-  .slds-select_container:before {
-      top: 8px !important;
-  }
-  .slds-notify_toast {
-      min-width: var(--slds-c-toast-sizing-min-width, var(--sds-c-toast-sizing-min-width, 480px));
-  }
-  .slds-notify__close {
-      top: 0px !important;
-  }
-  .slds-notify__close .slds-button:hover {
-      background-color: unset !important;
-  }
-  .slds-button__icon_small {
-      width: 12px !important;
-      height: 12px !important;
-  }
-  .slds-notify_container {
-      margin-top: 20px;
-  }
   .container {
       max-width: 100% !important;
   }
@@ -246,24 +177,12 @@ VERSION  AUTHOR         DATE            Description
 
         function setBrandCSSVariable(brand) {
             if (brand === 'loccitane') {
-                root.style.setProperty('--fullUrl', 'https://loccitane.my.site.com/loccitanecustomercare/resource/OSF_New_LOccitane_Fonts/LOccitaneSans-Medium.woff');
-                root.style.setProperty('--fontFormat', 'woff');
-                root.style.setProperty('--fontFamily', 'LOccitane Sans Medium');
                 const button = document.getElementById('buttonLabel');
                 button.classList.add('buttonLoccitane');
-
             } else if (brand === 'erborian') {
-                root.style.setProperty('--fullUrl', 'https://loccitane.my.site.com/loccitanecustomercare/resource/OSF_New_HKGrotesk_Fonts/HKGrotesk-Medium.otf');
-                root.style.setProperty('--fontFormat', 'opentype');
-                root.style.setProperty('--fontFamily', 'HK Grotesk Medium');
-
                 const button = document.getElementById('buttonLabel');
                 button.classList.add('buttonErborian');
             } else if (brand === 'melvita') {
-                root.style.setProperty('--fullUrl', 'https://loccitane.my.site.com/loccitanecustomercare/resource/OSF_New_Futura_Fonts/FuturaStdMedium.otf');
-                root.style.setProperty('--fontFormat', 'opentype');
-                root.style.setProperty('--fontFamily', 'Futura Std Medium');
-
                 const button = document.getElementById('buttonLabel');
                 button.classList.add('buttonMelvita');
             }
